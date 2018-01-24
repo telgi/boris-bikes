@@ -29,9 +29,9 @@ RSpec.describe DockingStation do
       expect(subject.dock(bike)).to eq bike
     end
 
-    it 'returns docked bikes' do
+    it 'raises error when capacity has been reached' do
       subject.dock(bike)
-      expect(subject.dock(bike)).to eq bike
+      expect {subject.dock(bike)}.to raise_error("There are no more spaces left!")
     end
 
   end
