@@ -2,9 +2,7 @@ require 'docking_station'
 
 RSpec.describe DockingStation do
 
-  bike = Bike.new
-
-  it {is_expected.to respond_to(:bikes)}
+  let(:bike) { Bike.new }
 
   describe '#release_bike' do
 
@@ -30,7 +28,7 @@ RSpec.describe DockingStation do
     end
 
     it 'raises error when the station is full' do
-      DockingStation::DEFAULT_CAPACITY.times { subject.dock(bike) }
+      subject.capacity.times { subject.dock(bike) }
       expect {subject.dock(bike)}.to raise_error("There are no more spaces left!")
     end
 
