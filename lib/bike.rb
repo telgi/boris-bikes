@@ -1,9 +1,12 @@
 class Bike
-def working?
-  true
-end
 
-def report
-  "Bike is broken"
-end
+  attr_reader :working
+  
+  def initialize
+    @working = true
+  end
+
+  def report(bike)
+    @working = false
+  end
 end
